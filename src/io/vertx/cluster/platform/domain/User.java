@@ -1,7 +1,7 @@
 
 package io.vertx.cluster.platform.domain;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -26,7 +26,7 @@ public class User {
     @JsonProperty("name")
     private String name;
     @JsonProperty("creationDate")
-    private Date creationDate;
+    private LocalDateTime creationDate;
 
     @JsonProperty("id")
     public String getId() {
@@ -59,16 +59,16 @@ public class User {
     }
 
     @JsonProperty("creationDate")
-    public Date getCreationDate() {
+    public LocalDateTime getCreationDate() {
         return creationDate;
     }
 
     @JsonProperty("creationDate")
-    public void setCreationDate(Date creationDate) {
+    public void setCreationDate(LocalDateTime creationDate) {
         this.creationDate = creationDate;
     }
 
-    public User withCreationDate(Date creationDate) {
+    public User withCreationDate(LocalDateTime creationDate) {
         this.creationDate = creationDate;
         return this;
     }
