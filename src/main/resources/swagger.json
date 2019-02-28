@@ -1,0 +1,202 @@
+{
+  "openapi" : "3.0.0",
+  "info" : {
+    "title" : "Swagger Petstore",
+    "description" : "## Пример описания сервисов и моделей. \n_Данный вид разбиения на папки, считать всего лишь демонстрацией такой возможности_",
+    "license" : {
+      "name" : "MIT"
+    },
+    "version" : "9.1"
+  },
+  "servers" : [ {
+    "url" : "http://localhost/{basePath}",
+    "variables" : {
+      "basePath" : {
+        "default" : "v1"
+      }
+    }
+  } ],
+  "paths" : {
+    "/pets" : {
+      "summary" : "123",
+      "description" : "456",
+      "get" : {
+        "tags" : [ "pets" ],
+        "summary" : "Получить список всех питомцев",
+        "operationId" : "listPets",
+        "parameters" : [ {
+          "name" : "limit",
+          "in" : "query",
+          "description" : "Лимит объектов в ответе на запрос (max 100)",
+          "required" : false,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Список питомцев, разбитый на страницы",
+            "headers" : {
+              "x-next" : {
+                "description" : "Ссылка на следующую страницу",
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Pets"
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Непредвиденная ошибка",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "x-accepts" : "application/json"
+      },
+      "post" : {
+        "tags" : [ "pets" ],
+        "summary" : "Сохранить питомца",
+        "operationId" : "savePet",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/Pet"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "201" : {
+            "description" : "Пустой ответ"
+          },
+          "default" : {
+            "description" : "Непредвиденная ошибка",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "OAuth2" : [ "admin", "write" ]
+        } ],
+        "x-contentType" : "application/json",
+        "x-accepts" : "application/json"
+      }
+    },
+    "/pets/{petId}" : {
+      "get" : {
+        "tags" : [ "pets" ],
+        "summary" : "Информация по конкретному питомцу",
+        "operationId" : "showPetById",
+        "parameters" : [ {
+          "name" : "petId",
+          "in" : "path",
+          "description" : "Id питомца, для его поиска",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Ожидаемый ответ, на валидный запрос",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Pet"
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Непредвиденная ошибка",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "x-accepts" : "application/json"
+      }
+    },
+    "x-apiVersion" : "v1"
+  },
+  "components" : {
+    "schemas" : {
+      "Pets" : {
+        "type" : "array",
+        "items" : {
+          "$ref" : "#/components/schemas/Pet"
+        }
+      },
+      "Error" : {
+        "required" : [ "code", "message" ],
+        "type" : "object",
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "message" : {
+            "type" : "string"
+          }
+        }
+      },
+      "Pet" : {
+        "required" : [ "id", "name" ],
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "tag" : {
+            "type" : "string"
+          }
+        },
+        "description" : "Основной класс модели. Все остальные созданы для работы с ним."
+      }
+    },
+    "securitySchemes" : {
+      "OAuth2" : {
+        "type" : "oauth2",
+        "flows" : {
+          "authorizationCode" : {
+            "authorizationUrl" : "https://example.com/oauth/authorize",
+            "tokenUrl" : "https://example.com/oauth/token",
+            "scopes" : {
+              "read" : "Grants read access",
+              "write" : "Grants write access",
+              "admin" : "Grants access to admin operations"
+            }
+          }
+        }
+      }
+    }
+  }
+}
