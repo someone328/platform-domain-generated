@@ -5,7 +5,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 /**
- * 123
  * Основной класс модели. Все остальные созданы для работы с ним.
  **/
 

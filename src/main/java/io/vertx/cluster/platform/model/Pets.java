@@ -2,10 +2,14 @@ package io.vertx.cluster.platform.model;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import io.vertx.cluster.platform.model.Pet;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+/**
+ * Класс - хранилище нескольких сущностей
+ **/
 
 @JsonInclude(JsonInclude.Include.NON_NULL) 
 public class Pets extends ArrayList<Pet>  {
