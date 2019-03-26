@@ -3,10 +3,13 @@ package io.vertx.cluster.platform.model;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
-@Entity
+
 @JsonInclude(JsonInclude.Include.NON_NULL) 
 public class Error   {
-  private Integer code = null;  private String message = null;
+
+  private Integer code = null;
+
+  private String message = null;
 
   public Error () {
 

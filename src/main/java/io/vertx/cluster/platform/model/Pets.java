@@ -6,10 +6,9 @@ import io.vertx.cluster.platform.model.Pet;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-@Entity
+
 @JsonInclude(JsonInclude.Include.NON_NULL) 
 public class Pets extends ArrayList<Pet>  {
-
 
   public Pets () {
 

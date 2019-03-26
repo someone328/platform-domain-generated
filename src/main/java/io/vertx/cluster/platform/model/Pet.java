@@ -7,10 +7,15 @@ import java.util.Objects;
 /**
  * Основной класс модели. Все остальные созданы для работы с ним.
  **/
-@Entity
+
 @JsonInclude(JsonInclude.Include.NON_NULL) 
 public class Pet   {
-  private Long id = null;  private String name = null;  private String tag = null;
+
+  private Long id = null;
+
+  private String name = null;
+
+  private String tag = null;
 
   public Pet () {
 
