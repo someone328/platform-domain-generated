@@ -9,7 +9,6 @@ import java.util.Objects;
 /**
  * Класс - хранилище нескольких сущностей
  **/
-
 @JsonInclude(JsonInclude.Include.NON_NULL) 
 public class Pets extends ArrayList<Pet>  {
 

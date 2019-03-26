@@ -6,10 +6,12 @@ import java.util.Objects;
 /**
  * Основной класс модели. Все остальные созданы для работы с ним.
  **/
-
+@Entity
+@Table(name = "pet_table")
 @JsonInclude(JsonInclude.Include.NON_NULL) 
 public class Pet   {
 
+  @Id
   private Long id = null;
 
   private String name = null;

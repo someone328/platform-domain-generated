@@ -171,7 +171,10 @@
         "properties" : {
           "id" : {
             "type" : "integer",
-            "format" : "int64"
+            "format" : "int64",
+            "x-jpa" : [ {
+              "type" : "Id"
+            } ]
           },
           "name" : {
             "type" : "string"
@@ -180,7 +183,15 @@
             "type" : "string"
           }
         },
-        "description" : "Основной класс модели. Все остальные созданы для работы с ним."
+        "description" : "Основной класс модели. Все остальные созданы для работы с ним.",
+        "x-jpa" : [ {
+          "type" : "Entity"
+        }, {
+          "type" : "Table",
+          "parameters" : [ {
+            "name" : "\"pet_table\""
+          } ]
+        } ]
       }
     },
     "securitySchemes" : {
