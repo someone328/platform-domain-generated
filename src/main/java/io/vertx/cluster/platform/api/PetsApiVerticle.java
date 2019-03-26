@@ -11,8 +11,6 @@ import com.github.phiz71.vertx.swagger.router.SwaggerRouter;
 import com.google.common.collect.Lists;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 import java.util.ServiceLoader;
 
 import io.vertx.cluster.platform.model.Error;
