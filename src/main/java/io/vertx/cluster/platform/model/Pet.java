@@ -7,11 +7,11 @@ import java.util.Objects;
  * Основной класс модели. Все остальные созданы для работы с ним.
  **/
 @javax.persistence.Entity
-@Table(name = "pet_table")
+@javax.persistence.Table(name = "pet_table")
 @JsonInclude(JsonInclude.Include.NON_NULL) 
 public class Pet   {
 
-  @Id
+  @javax.persistence.Id
   private Long id = null;
 
   private String name = null;
