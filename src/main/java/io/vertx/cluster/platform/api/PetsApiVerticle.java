@@ -8,6 +8,12 @@ import io.vertx.core.json.Json;
 import io.vertx.core.json.JsonObject;
 import io.vertx.ext.auth.User;
 import com.github.phiz71.vertx.swagger.router.SwaggerRouter;
+import com.google.common.collect.Lists;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.ServiceLoader;
 
 import io.vertx.cluster.platform.model.Error;
 import io.vertx.cluster.platform.MainApiException;
@@ -87,10 +93,10 @@ public class PetsApiVerticle extends AbstractVerticle {
     protected PetsApi createServiceImplementation() {
     	ArrayList<PetsApi> realizations = Lists.newArrayList(ServiceLoader.load(PetsApi.class));
         if(realizations.isEmpty()) {
-            throw new RuntimeException("No realizations for "+ PetsApi +" were founded");
+            throw new RuntimeException("No realizations for "+ PetsApi.class +" were founded");
         }
         if(realizations.size() > 1 ) {
-            throw new RuntimeException("More then one realization of "+ requestedInterface +" were founded: "+ realizations);
+            throw new RuntimeException("More then one realization of "+ PetsApi.class +" were founded: "+ realizations);
         }
         return realizations.get(0);
     }
