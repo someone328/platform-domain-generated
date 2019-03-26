@@ -19,6 +19,10 @@ public class Error   {
     this.code = code;
     this.message = message;
   }
+  public Error (Integer code, String message) {
+    this.code = code;
+    this.message = message;
+  }
 
     
   @JsonProperty("code")

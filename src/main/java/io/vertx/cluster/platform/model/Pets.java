@@ -18,8 +18,6 @@ public class Pets extends ArrayList<Pet>  {
 
   }
 
-  public Pets () {
-  }
 
 
   @Override
