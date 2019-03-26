@@ -185,7 +185,7 @@
         },
         "description" : "Основной класс модели. Все остальные созданы для работы с ним.",
         "x-jpa" : [ {
-          "type" : "Entity"
+          "type" : "javax.persistence.Entity"
         }, {
           "type" : "Table",
           "parameters" : [ {
