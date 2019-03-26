@@ -26,16 +26,6 @@ public class Pet   {
     this.name = name;
     this.tag = tag;
   }
-  public Pet (Long id, String name, String tag) {
-    this.id = id;
-    this.name = name;
-    this.tag = tag;
-  }
-  public Pet (Long id, String name, String tag) {
-    this.id = id;
-    this.name = name;
-    this.tag = tag;
-  }
 
     
   @JsonProperty("id")
